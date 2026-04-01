@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Electric Birthday</title>
+
+<style>
+
+body{
+background:#0a0f1c;
+font-family:Arial;
+color:white;
+text-align:center;
+margin-top:80px;
+}
+
+.panel{
+width:650px;
+margin:auto;
+background:#131a33;
+padding:40px;
+border-radius:20px;
+box-shadow:0 0 40px rgba(0,255,200,0.2);
+}
+
+h1{
+color:#00ffd5;
+margin-bottom:30px;
+}
+
+.riddle{
+font-size:18px;
+line-height:1.8;
+margin-bottom:25px;
+}
+
+input{
+padding:12px;
+font-size:18px;
+border:none;
+border-radius:10px;
+}
+
+button{
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:10px;
+background:#00ffd5;
+cursor:pointer;
+margin-top:15px;
+}
+
+.bulb{
+font-size:90px;
+margin-top:35px;
+opacity:0.2;
+transition:0.6s;
+}
+
+.switch{
+width:80px;
+height:40px;
+background:#333;
+border-radius:20px;
+margin:20px auto;
+position:relative;
+cursor:pointer;
+}
+
+.switch-circle{
+width:34px;
+height:34px;
+background:white;
+border-radius:50%;
+position:absolute;
+top:3px;
+left:3px;
+transition:0.4s;
+}
+
+#message{
+display:none;
+margin-top:30px;
+font-size:24px;
+color:#00ffd5;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="panel">
+
+<h1>⚡ لوحة التحكم الكهربائية</h1>
+
+<div class="riddle">
+قبل تشغيل الطاقة… حل هذا اللغز:<br><br>
+
+أنا قوة غير مرئية تمر داخل الأسلاك،  
+بدوني لا يعمل جهاز ولا يضيء مصباح.  
+المهندسون يقيسونني بالفولت والأمبير.  
+من أنا؟
+</div>
+
+<input id="answer" placeholder="اكتب الإجابة">
+
+<br>
+
+<button onclick="checkAnswer()">تحقق</button>
+
+<div class="switch" onclick="turnOn()">
+<div class="switch-circle" id="circle"></div>
+</div>
+
+<div class="bulb" id="bulb">💡</div>
+
+<div id="message">
+
+🎉 عيد ميلاد سعيد 🎉
+
+<br><br>
+
+إلى أخي العزيز،  
+كل عام وأنت بخير.  
+أتمنى لك عامًا مليئًا بالنجاح والإنجازات،  
+وأن تستمر في إضاءة الطريق بعلمك واجتهادك.
+
+</div>
+
+</div>
+
+<script>
+
+let solved = false;
+
+function checkAnswer(){
+
+let a = document.getElementById("answer").value;
+
+if(a=="الكهرباء" || a=="كهرباء"){
+solved = true;
+alert("إجابة صحيحة. يمكنك الآن تشغيل الطاقة.");
+}
+
+else{
+alert("الإجابة غير صحيحة.");
+}
+
+}
+
+function turnOn(){
+
+if(solved){
+
+document.getElementById("bulb").style.opacity="1";
+document.getElementById("circle").style.left="43px";
+document.getElementById("message").style.display="block";
+
+}
+
+else{
+alert("حل اللغز أولاً.");
+}
+
+}
+
+</script>
+
+</body>
+</html>
